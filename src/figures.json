@@ -1,0 +1,17 @@
+[
+  {
+    "nombre": "Goku",
+    "precio": 2500,
+    "image": ""
+  },
+  {
+    "nombre": "Vegeta",
+    "precio": 2400,
+    "image": ""
+  },
+  {
+    "nombre": "Gogeta",
+    "precio": 5000,
+    "image": ""
+  }
+]

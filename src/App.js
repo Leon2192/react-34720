@@ -3,6 +3,7 @@ import ItemCount from "./components/ItemCount/ItemCount";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import React, { useState } from "react";
 import NavBar from "./components/NavBar/NavBar";
+import Routing from "./Routes/Routing";
 
 function App() {
   // Desafío nª 4
@@ -33,15 +34,7 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar />
-      <ItemListContainer greeting={greeting} />
-      <h2>Acá pongo mi contador</h2>
-      <ItemCount
-        count={count}
-        handleAumentar={handleAumentar}
-        handleRestar={handleRestar}
-        onAdd={onAdd}
-      />
+      <Routing />
     </div>
   );
 }

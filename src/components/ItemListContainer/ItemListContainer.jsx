@@ -3,20 +3,18 @@ import ItemList from "../ItemList/ItemList";
 
 const ItemListContainer = ({ greeting }) => {
   // Recibe la greeting que me pasa App al llamar este componente y la muestra en pantalla con un h1
-  const [personajes, setPersonajes] = useState([]);
+  const [productos, setProductos] = useState([]);
 
   useEffect(() => {
-    fetch(
-      `https://github.com/Leon2192/react-34720/blob/master/src/figures.json`
-    )
+    fetch(`https://fakestoreapi.com/products`)
       .then((res) => res.json())
-      .then((json) => setPersonajes(json));
-    console.log(personajes);
+      .then((json) => setProductos(json));
+    console.log(productos);
   }, []);
   return (
     <div>
       <h1>{greeting}</h1>
-      <ItemList personajes={personajes} />
+      <ItemList productos={productos} />
     </div>
   );
 };

@@ -6,18 +6,28 @@ import Progress from "../Progress/Progress";
 
 const ItemDetailContainer = () => {
   const [detail, setDetail] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const { itemId } = useParams();
 
+  const detailFunction = async () => {
+    try {
+      const data = await axios
+        .get(`https://fakestoreapi.com/products/${itemId}`)
+        .then((res) => {
+          console.log(res);
+          setDetail(res.data);
+        });
+      setLoading(true);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   useEffect(() => {
-    axios
-      .get(`https://fakestoreapi.com/products/${itemId}`)
-      .then((res) => setDetail(res.data))
-      .then(setLoading(false));
-    console.log(detail);
+    detailFunction();
   }, [itemId]);
 
-  return <div>{loading ? <Progress /> : <ItemDetail detail={detail} />}</div>;
+  return <div>{loading ? <ItemDetail detail={detail} /> : <Progress />}</div>;
 };
 
 export default ItemDetailContainer;

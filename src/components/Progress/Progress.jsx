@@ -1,15 +1,13 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import LinearProgress from "@mui/material/LinearProgress";
+import Skeleton from "@mui/material/Skeleton";
 
-const Progress = () => {
+export default function Progress() {
   return (
-    <Box sx={{ width: "100%" }}>
-      <LinearProgress color="secondary" />
-      <LinearProgress color="success" />
-      <LinearProgress color="inherit" />
+    <Box sm={{ width: "100%" }}>
+      <Skeleton />
+      <Skeleton animation="wave" height="300px" />
+      <Skeleton animation={true} height="300px" />
     </Box>
   );
-};
-
-export default Progress;
+}
